@@ -1,0 +1,7 @@
+{
+  "PROJECT_START_DATE": "2026-02-01",
+  "ASSIGNEES": ["Amey", "Shreya", "Shaina", "Aditi", "Rakesh"],
+  "MAX_ITERATIONS": 3,
+  "ITERATION_DURATION": 15,
+  "MAX_DATE_LOOKAHEAD": 30
+}
