@@ -1,7 +1,10 @@
 {
-  "PROJECT_START_DATE": "2026-02-01",
-  "ASSIGNEES": ["Amey", "Shreya", "Shaina", "Aditi", "Rakesh"],
+  "PROJECT_START_DATE": "2026-01-05",
+  "DEVELOPERS": ["Amey", "Shreya", "Shaina", "Aditi", "Rakesh"],
+  "QAS": ["QA1", "QA2"],
   "MAX_ITERATIONS": 3,
   "ITERATION_DURATION": 15,
-  "MAX_DATE_LOOKAHEAD": 30
+  "MAX_DATE_LOOKAHEAD": 30,
+  "INPUT_FILE": "TaskInfo.xlsx",
+  "OUTPUT_FILE": "TaskScheduleOutput.xlsx"
 }

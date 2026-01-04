@@ -1,6 +1,11 @@
 const XLSX = require("xlsx");
 const dayjs = require("dayjs");
 
+/**
+ * Reads tasks from an Excel file.
+ * @param {string} filePath - Path to the Excel file.
+ * @returns {Array} Array of task objects with properties: taskId, taskName, assignee, storyPoints, duration, deadline, offDays.
+ */
 function readTasks(filePath) {
   const wb = XLSX.readFile(filePath);
   const sheet = wb.Sheets["Tasks"];
