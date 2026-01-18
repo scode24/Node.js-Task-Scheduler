@@ -1,5 +1,7 @@
 # Node.js Task Scheduler
 
+![Timeline View](Timeline.png)
+
 A Node.js application for scheduling tasks across multiple assignees, iterations, and generating Excel reports with task distribution and timeline views.
 
 ## Features
@@ -22,7 +24,6 @@ A Node.js application for scheduling tasks across multiple assignees, iterations
    ```
 
 2. Prepare input file `TaskInfo.xlsx` with a sheet named "Tasks" containing columns:
-
    - taskId
    - taskName
    - assignee
@@ -34,26 +35,46 @@ A Node.js application for scheduling tasks across multiple assignees, iterations
 3. Configure `config.json`:
    ```json
    {
-     "assignees": ["Amey", "Shreya", "Shaina", "Aditi", "Rakesh"],
+     "PROJECT_START_DATE": "2026-01-05",
+     "DEVELOPERS": ["Arjun", "Priya", "Vikram", "Anjali", "Rohan"],
+     "QAS": ["Divya", "Arun"],
      "MAX_ITERATIONS": 3,
      "ITERATION_DURATION": 15,
-     "MAX_DATE_LOOKAHEAD": 30
+     "MAX_DATE_LOOKAHEAD": 30,
+     "INPUT_FILE": "TaskInfo.xlsx",
+     "OUTPUT_FILE": "TaskScheduleOutput.xlsx",
+     "OFF_DAYS": {
+       "Arjun": ["2026-01-26", "2026-03-08"],
+       "Priya": ["2026-02-15", "2026-04-14"],
+       "Vikram": ["2026-01-30", "2026-03-15"],
+       "Anjali": ["2026-02-20", "2026-04-10"],
+       "Rohan": ["2026-01-25", "2026-03-12"],
+       "Divya": ["2026-02-18", "2026-04-16"],
+       "Arun": ["2026-01-28", "2026-03-18"]
+     }
    }
    ```
 
 ## Usage
 
-Run the scheduler with a project start date:
+Run the scheduler:
 
 ```bash
-node index.js 2026-01-02
+node index.js
+```
+
+Or provide a project start date (overrides config):
+
+```bash
+node index.js 2026-01-05
 ```
 
 This will:
 
-- Read tasks from `TaskInfo.xlsx`
-- Schedule tasks starting from the given date
-- Generate `TaskScheduleOutput.xlsx` and `TaskScheduleTimeline.xlsx`
+- Read tasks from the configured `INPUT_FILE` (default: `TaskInfo.xlsx`)
+- Schedule tasks for DEVELOPERS and QAS
+- Generate the configured `OUTPUT_FILE` (default: `TaskScheduleOutput.xlsx`)
+- Apply OFF_DAYS from the configuration
 
 ## Output Files
 
@@ -83,10 +104,15 @@ Visual timeline with:
 
 Edit `config.json` to customize:
 
-- `assignees`: List of team members
+- `PROJECT_START_DATE`: Project start date (YYYY-MM-DD format, or pass as command argument)
+- `DEVELOPERS`: List of developers
+- `QAS`: List of QA team members
 - `MAX_ITERATIONS`: Maximum number of iterations (default 3)
 - `ITERATION_DURATION`: Days per iteration (default 15)
 - `MAX_DATE_LOOKAHEAD`: Maximum days to look ahead for scheduling (default 30)
+- `INPUT_FILE`: Path to input Excel file with tasks
+- `OUTPUT_FILE`: Path to generated output Excel file
+- `OFF_DAYS`: Object mapping assignee names to arrays of off-day dates (YYYY-MM-DD format)
 
 ## Dependencies
 

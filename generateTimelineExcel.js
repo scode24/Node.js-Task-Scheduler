@@ -118,6 +118,14 @@ async function generateTimelineExcel(tasks) {
             const wkndCell = sheet.getCell(rowIndex, currentCol);
             wkndCell.value = "🍻";
             wkndCell.alignment = { horizontal: "center", vertical: "middle" };
+          } else if (
+            (config.OFF_DAYS[assignee] || []).includes(
+              date.format("YYYY-MM-DD")
+            )
+          ) {
+            const offCell = sheet.getCell(rowIndex, currentCol);
+            offCell.value = "💤";
+            offCell.alignment = { horizontal: "center", vertical: "middle" };
           } else {
             sheet.getCell(rowIndex, currentCol).fill = {
               type: "pattern",

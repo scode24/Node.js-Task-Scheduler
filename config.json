@@ -1,10 +1,19 @@
 {
   "PROJECT_START_DATE": "2026-01-05",
-  "DEVELOPERS": ["Amey", "Shreya", "Shaina", "Aditi", "Rakesh"],
-  "QAS": ["QA1", "QA2"],
+  "DEVELOPERS": ["Arjun", "Priya", "Vikram", "Anjali", "Rohan"],
+  "QAS": ["Divya", "Arun"],
   "MAX_ITERATIONS": 3,
   "ITERATION_DURATION": 15,
   "MAX_DATE_LOOKAHEAD": 30,
   "INPUT_FILE": "TaskInfo.xlsx",
-  "OUTPUT_FILE": "TaskScheduleOutput.xlsx"
+  "OUTPUT_FILE": "TaskScheduleOutput.xlsx",
+  "OFF_DAYS": {
+    "Arjun": ["2026-01-26", "2026-03-08"],
+    "Priya": ["2026-02-15", "2026-04-14"],
+    "Vikram": ["2026-01-30", "2026-03-15"],
+    "Anjali": ["2026-02-20", "2026-04-10"],
+    "Rohan": ["2026-01-25", "2026-03-12"],
+    "Divya": ["2026-02-18", "2026-04-16"],
+    "Arun": ["2026-01-28", "2026-03-18"]
+  }
 }

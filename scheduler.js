@@ -57,14 +57,14 @@ function scheduleTasks(tasks, projectStart, developers, qas) {
     developerTasks.forEach((task) => {
       const start = nextWorkingDay(
         globalCursor,
-        task.offDays,
+        config.OFF_DAYS[task.assignee] || [],
         MAX_DATE_LOOKAHEAD
       );
 
       const end = calculateEndDate(
         start,
         task.duration,
-        task.offDays,
+        config.OFF_DAYS[task.assignee] || [],
         MAX_DATE_LOOKAHEAD
       );
 
@@ -120,14 +120,14 @@ function scheduleTasks(tasks, projectStart, developers, qas) {
 
       const start = nextWorkingDay(
         effectiveStart,
-        task.offDays,
+        config.OFF_DAYS[task.assignee] || [],
         MAX_DATE_LOOKAHEAD
       );
 
       const end = calculateEndDate(
         start,
         task.duration,
-        task.offDays,
+        config.OFF_DAYS[task.assignee] || [],
         MAX_DATE_LOOKAHEAD
       );
 
